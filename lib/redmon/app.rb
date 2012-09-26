@@ -5,14 +5,13 @@ require 'haml'
 
 module Redmon
   class App < Sinatra::Base
-  
-    set :views, Proc.new { File.join(root, "../views") }
 
     helpers Redmon::Helpers
 
     use Rack::Static, {
       urls: [/\.css$/, /\.js$/],
       root: "#{root}/public",
+      views: "#{root}/views",
       cache_control: 'public, max-age=3600'
     }
 

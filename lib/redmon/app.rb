@@ -7,8 +7,6 @@ module Redmon
   class App < Sinatra::Base
 
     helpers Redmon::Helpers
-    
-    set :views, "#{root}/views"
 
     use Rack::Static, {
       urls: [/\.css$/, /\.js$/],

@@ -5,7 +5,7 @@ require 'haml'
 
 module Redmon
   class App < Sinatra::Base
-  
+    set :root, File.dirname(__FILE__)
     set :views, Proc.new { File.join(root, "views") }
 
     helpers Redmon::Helpers

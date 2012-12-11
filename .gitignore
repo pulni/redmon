@@ -1,8 +1,9 @@
 *.gem
 .bundle
-/vendor
+.rbenv-version
 .DS_Store
 dump.rdb
+pkg
+vendor
+!/lib/redmon/public/vendor
 Gemfile.lock
-.rvmrc
-highcharts.js

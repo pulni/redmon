@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'active_support/core_ext'
 require 'redmon/helpers'
 require 'haml'
 
@@ -27,7 +26,8 @@ module Redmon
     end
 
     get '/cli' do
-      args = params[:command].split
+      args = params[:command].split(/ *"(.*?)" *| *'(.*?)' *| /)
+      args.reject!(&:blank?)
       @cmd = args.shift.downcase.intern
       begin
         raise RuntimeError unless supported? @cmd
